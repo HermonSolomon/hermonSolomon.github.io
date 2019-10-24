@@ -1,0 +1,309 @@
+html,
+body {
+ margin: 0;
+ max-width: 800px;
+ max-height: 660px;
+}
+
+body {
+ font-family: "Lato", sans-serif;
+ font-size: 16px;
+ line-height: 1.3;
+}
+
+h2 {
+ text-align: center;
+ color: #fff;
+ font-weight: 500;
+}
+
+.app {
+ max-width: 800px;
+ width: 100%;
+ height: 100%;
+ margin: auto;
+}
+
+.img-responsive {
+ width: 100%;
+ height: 100%;
+}
+
+.pursuit-logo {
+ position: absolute;
+ width: 590px;
+ left: 85px;
+ top: 70px;
+ z-index: 5;
+}
+
+.btn-scoreBoard {
+ width: 220px;
+ height: 60px;
+ background-color: #189cd9;
+ border-radius: 30px;
+ border: solid 2px #fff;
+ color: #fff;
+ font-size: 18px;
+ cursor: pointer;
+ position: absolute;
+ bottom: 150px;
+ left: 290px;
+}
+
+.btn-style {
+ width: 215px;
+ height: 60px;
+ background-color: #189cd9;
+ border-radius: 30px;
+ border: solid 2px #fff;
+ position: absolute;
+ bottom: 120px;
+ left: 60px;
+ color: #fff;
+ font-size: 18px;
+ cursor: pointer;
+}
+
+.btn-start {
+ width: 295px;
+ height: 60px;
+ background-color: #189cd9;
+ border-radius: 30px;
+ border: solid 2px #fff;
+ position: relative;
+ bottom: 120px;
+ left: 250px;
+ color: #fff;
+ font-size: 18px;
+ cursor: pointer;
+}
+
+.nxt-btn {
+ width: 215px;
+ height: 60px;
+ background-color: #189cd9;
+ border-radius: 30px;
+ border: solid 2px #fff;
+ position: absolute;
+ bottom: 177px;
+ left: 560px;
+ font-size: 24px;
+ color: white;
+ cursor: pointer;
+}
+
+.slide {
+ display: none;
+ max-width: 800px;
+ width: 100%;
+ height: 100%;
+}
+
+.slide1 {
+ display: block;
+}
+
+.instruction-screen {
+ width: 800px;
+ max-height: 600px;
+ position: absolute;
+ top: 0;
+ left: 0;
+}
+
+.col-1 {
+ /* background-color: #189CD9; */
+ width: 50%;
+ height: auto;
+ color: #fff;
+ margin: 50px;
+ font-size: 24px;
+}
+
+.col-2 {
+ width: 40%;
+ height: auto;
+ position: relative;
+ top: -270px;
+ left: 500px;
+}
+
+.progress-block {
+ display: flex;
+ margin: 15px;
+ width: 255px;
+ height: 74px;
+ border: solid 2px #fff;
+ border-radius: 10px;
+ background-color: rgb(170, 170, 170);
+ color: white;
+ justify-content: center;
+ align-items: center;
+ font-size: 24px;
+}
+
+/* slide3 */
+.sl3-wrapper {
+ width: 800px;
+ height: auto;
+ position: absolute;
+ top: 0;
+}
+
+.sl3-wrapper button {
+ position: absolute;
+ bottom: -70px;
+ left: 300px;
+ color: #fff;
+ font-size: 18px;
+ cursor: pointer;
+}
+
+.pursuer-img {
+ display: block;
+ width: 330px;
+ margin: 0 auto;
+}
+
+.chaserTitle {
+ animation: chaserTitle 1s ease-in-out normal forwards;
+}
+
+@keyframes chaserTitle {
+ 0% {
+  transform: translate(900px, 0);
+  animation-timing-function: ease-in-out;
+ }
+
+ 100% {
+  transform: translate(0, 0);
+ }
+}
+
+.pursuerCharacter {
+ animation: characterChase 1s ease-in-out normal forwards;
+}
+
+@keyframes characterChase {
+ 0% {
+  transform: translate(-800px, 0);
+  animation-timing-function: ease-in-out;
+ }
+
+ 100% {
+  transform: translate(0, 0);
+ }
+}
+
+.sl3-startBtn {
+ animation: chaserBtn 1s ease-in-out normal forwards;
+ animation-delay: 0.9s;
+ opacity: 0;
+}
+
+@keyframes chaserBtn {
+ 0% {
+  transform: translate(900px, 0);
+  animation-timing-function: ease-in-out;
+  opacity: 0;
+ }
+
+ 100% {
+  transform: translate(0, 0);
+  opacity: 1;
+ }
+}
+
+/* slide4 */
+
+.question-section {
+ width: 740px;
+ height: 135px;
+ border: solid 3px #fff;
+ border-radius: 10px;
+ background-color: rgb(55, 51, 49);
+ position: absolute;
+ top: 121px;
+ left: 28px;
+}
+
+.question {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ color: white;
+ font-size: 24px;
+ padding: 20px;
+}
+
+.options-section {
+ display: flex;
+ width: 750px;
+ height: 175px;
+ position: absolute;
+ top: 270px;
+ left: 26px;
+ justify-content: space-evenly;
+}
+
+.options {
+ display: inline-flex;
+ width: 229px;
+ height: 133px;
+ background-color: #189cd9;
+ font-size: 24px;
+ border-radius: 10px;
+ border: solid 3px #fff;
+ justify-content: center;
+ align-items: center;
+ color: white;
+ cursor: pointer;
+}
+
+.answerIcon {
+ position: absolute;
+ top: 370px;
+ left: -80px;
+}
+
+.defaultFeedback {
+ position: absolute;
+ bottom: 220px;
+ left: 35px;
+ font-size: 24px;
+ font-weight: 600;
+ color: #fff;
+}
+
+.optionDiv {
+ position: relative;
+}
+
+.feedback-wrapper {
+ position: absolute;
+ top: 0;
+ right: 0;
+}
+
+span .feedback-icon,
+.correct {
+ font-size: 50px;
+ color: green;
+ position: absolute;
+ left: -40px;
+ top: -20px;
+}
+
+span .feedback-icon,
+.incorrect {
+ font-size: 50px;
+ color: red;
+ position: absolute;
+ left: -40px;
+ top: -20px;
+}
+
+.botCharacter {
+ position: relative;
+}
