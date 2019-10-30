@@ -1,6 +1,7 @@
 $(function() {
   init();
   function init() {
+    generateIcons();
     $(".btn-start, .btn-letsGo, .sl3-startBtn, .btn-generalStyle").click(
       function() {
         goToSlide(currentSlide + 1);
@@ -8,41 +9,31 @@ $(function() {
     );
 
     $(".nxt-btn").click(function() {
-      goToSlide(currentSlide + 1);
       nextQuestion();
-      console.log("the current slide is " + currentSlide);
+      // console.log("the current slide is " + currentSlide);
     });
 
     $(".btn-scoreBoard").click(function() {
       $(".slide" + currentSlide).fadeOut(500);
-      $(".slide5").fadeIn();
+      $(".slide5").fadeIn(500);
       scoreBoard();
     });
 
     $(".options").click(function() {
       selected = $(this).attr("data-answer");
-      setTimeout(() => {
-        $(".defaultFeedback").fadeIn(500, function() {
-          $(".optionDiv .feedback-wrapper")
-            .fadeIn()
-            .html(feedbackIcons.incorrect);
-          $(".optDiv" + ANS + " .feedback-wrapper").html(feedbackIcons.correct);
-        });
-        $(".btn-scoreBoard").fadeIn();
-      }, 3000);
       submitAns(selected);
       $(this).css({
         background: "#b4b4b4"
       });
     });
-    generateIcons();
+
     startQuiz();
   }
 });
 
 goToSlide = num => {
   if (currentSlide < totalSlides) {
-    $(".slide" + currentSlide).fadeOut(500);
+    $(".slide").fadeOut(500);
     $(".slide" + num).fadeIn(500);
     currentSlide = num;
     // console.log(currentSlide);
@@ -73,8 +64,7 @@ function generateIcons() {
   $(".optionDiv").each(function(index) {
     var num = index + 1;
     var output = '<div class="feedback-wrapper"></div>';
-    $(this)
-      .append(output)
-      .addClass("optDiv" + num);
+    $(this).append(output);
+    // .addClass("optDiv" + num);
   });
 }

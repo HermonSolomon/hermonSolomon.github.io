@@ -13,7 +13,7 @@ let feedbackIcons = {
   incorrect:
     '<span class="incorrect feedback-icon"><i class="fas fa-times-circle" style="background-color:#fff; border-radius:50%"></i></span> '
 };
-
+  
 let QuestionBanks = {
   1: {
     question: `Which style of management identified by Blake & Mouton can be described as friendly yet unproductive?`,
