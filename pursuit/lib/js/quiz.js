@@ -1,4 +1,4 @@
-const totalQuestions = 7;
+const totalQuestions = 5;
 let currentQuestion = 1;
 let dataVals;
 let ANS;
@@ -7,8 +7,8 @@ let options;
 let feedbacks;
 let userStats = {};
 let botAnswer;
-let botCorrectCount = 0;
-let userCorrectCount = 0;
+let botCorrectCount = -1;
+let userCorrectCount = 1;
 
 startQuiz = () => {
   $(".btn-scoreBoard").fadeOut();
@@ -29,6 +29,9 @@ startQuestion = () => {
   $(".opt2").html(dataVals.option[2]);
   $(".opt3").html(dataVals.option[3]);
   $(".answerIcon").css({ left: "-80px" });
+  $(".options").css({
+    backgroundColor: "#189cd9"
+  });
 };
 
 nextQuestion = () => {
@@ -94,7 +97,6 @@ characterMove = () => {
   let leftPos = $(".optDiv" + target).position().left;
   let width = $(".optDiv" + target).width();
   let finalPos = leftPos + width / 2;
-
   console.log(finalPos);
 
   // leftPos is the starting line of the opt + target
@@ -109,53 +111,75 @@ characterMove = () => {
 };
 
 function scoreBoard() {
+  if (userCorrectCount == botCorrectCount) {
+    // fadeInscreen
+    setTimeout(() => {
+      botCorrectCount -= 1;
+      $(".lost-screen").fadeIn();
+    }, 2500);
+  }
+
   botMove();
 
-  if (userStats.selected === ANS) {
+  if (userStats.selected == ANS) {
     userMove();
   }
+
 
   function botMove() {
     console.log(botCorrectCount);
     let botCharacter = $(".botCharacter");
+    let botCharacterHeight = botCharacter.height();
+    let boxHeight = $(".progress-block").height();
+    let strokeW = 2;
+    let marginBox = 15 + strokeW * 2;
+    let posY = boxHeight * botCorrectCount;
+    let marginY = marginBox * botCorrectCount;
+    let charH = botCharacterHeight / 2;
+
     botCharacter.animate(
       {
-        top: $(".progress-block").height() * botCorrectCount
+        top: posY + marginY + boxHeight - charH - marginBox,
       },
       1500
     );
   }
+
   function userMove() {
     // userAnimation
     userCorrectCount++;
-    $(".block2").animate(
-      {
-        opacity: 1
-      },
-      "slow",
-      function() {
+    $(".progress-block").each(function() {
+     
+      // toggle css class for div bgColor
+      if (!$(this).hasClass("block6")) {
+        $(this).empty();
         $(this)
-          .html("")
-          .css({
-            "background-color": "#AAAAAA"
-          })
-          .animate(
-            {
-              opacity: 1
-            },
-            1000
-          );
-
-        $(".block3")
-          .html("You are here")
-          .css(
-            {
-              background: "#189cd9"
-            },
-            1000
-          );
+         .html("")
+         .css({
+          "background-color": "#AAAAAA"
+         })
+         .animate({
+           opacity: 1
+          },
+          1000
+         );
       }
-    );
+    });
+
+    $(".block" + (userCorrectCount + 1))
+    .html("You are here")
+    .css({
+     background: "#189cd9",
+     color: '#fff'
+    }).fadeIn(2500);
+
+
+
+    console.log(userCorrectCount);
+    
+
+
+
   }
 }
 

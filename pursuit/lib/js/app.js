@@ -13,6 +13,11 @@ $(function() {
       // console.log("the current slide is " + currentSlide);
     });
 
+    $(".try-again").click(function() {
+      $(".lost-screen").fadeOut(500);
+      goToSlide(3);
+    });
+
     $(".btn-scoreBoard").click(function() {
       $(".slide" + currentSlide).fadeOut(500);
       $(".slide5").fadeIn(500);
