@@ -125,7 +125,6 @@ function scoreBoard() {
     userMove();
   }
 
-
   function botMove() {
     console.log(botCorrectCount);
     let botCharacter = $(".botCharacter");
@@ -136,6 +135,18 @@ function scoreBoard() {
     let posY = boxHeight * botCorrectCount;
     let marginY = marginBox * botCorrectCount;
     let charH = botCharacterHeight / 2;
+ 
+    $(".progress-block").each(function () {
+     // check if the current position is not on the last block.
+     if (!$(this).hasClass("block6")) {
+      $(this).empty();
+     }
+     $(".block" + (botCorrectCount + 1))
+      .css({
+       "background-color": "red",
+    
+      })
+    });
 
     botCharacter.animate(
       {
@@ -149,37 +160,25 @@ function scoreBoard() {
     // userAnimation
     userCorrectCount++;
     $(".progress-block").each(function() {
-     
-      // toggle css class for div bgColor
+      // check if the current position is not on the last block.
       if (!$(this).hasClass("block6")) {
         $(this).empty();
-        $(this)
-         .html("")
-         .css({
-          "background-color": "#AAAAAA"
-         })
-         .animate({
-           opacity: 1
-          },
-          1000
-         );
       }
+      $(".block" + (userCorrectCount + 1))
+        .html("You are here")
+        .css({
+            "background-color": "#189cd9",
+            'color': "#fff"
+        })
+        // .animate(
+        //   {
+
+        //   },
+        //   1000
+        // );
     });
 
-    $(".block" + (userCorrectCount + 1))
-    .html("You are here")
-    .css({
-     background: "#189cd9",
-     color: '#fff'
-    }).fadeIn(2500);
-
-
-
     console.log(userCorrectCount);
-    
-
-
-
   }
 }
 
